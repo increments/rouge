@@ -1,0 +1,12 @@
+@echo off
+setlocal enabledelayedexpansion
+cd /d %~dp0
+if exist %cd%\FizzBuzz.txt del %cd%\FizzBuzz.txt
+for /l %%i in (1,1,100) do (
+set echo=
+set /a f=%%i%%3,b=%%i%%5
+if !f!==0 set echo=!echo!Fizz
+if !b!==0 set echo=!echo!Buzz
+if "!echo!"=="" set echo=%%i
+echo !echo!>>%cd%\FizzBuzz.txt
+)
